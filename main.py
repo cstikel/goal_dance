@@ -181,6 +181,8 @@ def main():
                         SetAngle(0)
                     else:
                         if game_over(game_json):
+                            #sleep until the next day (assumption there is only one game per day)
+                            time.sleep(18000)
                             break
                         else:
                             print(game_json['clock']['timeRemaining'], " - Scores the same.", current_goals)
