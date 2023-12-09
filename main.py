@@ -163,10 +163,6 @@ def main():
 
 
             current_goals = 0
-            
-            print("Game script is running!")
-            #goallight()
-            #SetAngle(0)
 
             while duration_in_m <= 1:
                 try:
@@ -174,6 +170,9 @@ def main():
                     #I think the current goal needs to move outside of the while loop
                     #current_goals = get_goal_count(game_json, home_away=home_away)
                     goals = get_goal_count(game_json, home_away=home_away)
+                    print("Game script is running!")
+                    goallight()
+                    SetAngle(0)
                     if current_goals != goals :
                         goallight()
                         current_goals = goals
@@ -181,6 +180,7 @@ def main():
                         SetAngle(0)
                     else:
                         if game_over(game_json):
+                            print("Game Over.")
                             #sleep until the next day (assumption there is only one game per day)
                             time.sleep(18000)
                             break
